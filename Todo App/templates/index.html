@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block style %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/index.css') }}">
+{% endblock %}
+
+{% block title %}
+  App
+{% endblock %}
+
+{% block body %}
+
+
+    <br><br>                                                                                                                                                                                                    
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h1 class="modal-title modal_title">Add Todo Lists</h4>
+            <button type="button" class="close" style="background-color:red" data-dismiss="modal">&times;</button>
+          </div>
+    
+          <!-- Modal body -->
+          <form  action="/insert" method="post">
+              <div class="modal-body">
+                  <div>
+                      <h3>Title</h3>
+                      <input style="width: 300px" type="text" name="title">
+                  </div><br><br>
+                  <div>
+                      <h3>Message</h3>
+                      <textarea style="width: 300px; height:150px" name="message"></textarea>
+                  </div>
+              </div>
+      
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary"  >Submit</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>  
+
+    <!-- Adding the ADD TODO button -->
+    <div>
+        <a href="#"  data-toggle="modal" data-target="#myModal"  class="add">Add Todo</a>
+    </div>
+
+    <!--Adding the cards in the window -->
+    {% for value in values %}
+      <div class="card card1" style="background-color: gray;">
+        <div class="card2">
+          <div class="card-body" data-toggle="modal" data-target="#myModal{{value[0]}}">
+            <h4 class="card-title">{{value[1]}}</h4>
+          </div>
+          <div></div>
+          <div>
+            <div class="card-button">
+              <form action="/complete/{{value[0]}}" method="post">
+                <button type="submit" class="btn btn-success">
+                  Mark Completed
+                </button>
+              </form>
+            </div><br>
+            <div class="card-button">
+              <form action="/delete/{{value[0]}}" >
+                <button  type="submit" class="btn btn-danger">Delete</button>
+              </form> 
+            </div>  
+          </div>
+        </div>
+      </div>
+      <br><br>
+
+      <!-- The Modal For Card -->
+      <div class="modal" id="myModal{{ value[0] }}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h1 class="modal-title modal_title">Add Todo Lists</h4>
+              <button type="button" class="close" style="background-color:red" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <form action="/update/{{value[0]}}" method="post">
+                <div class="modal-body">
+                    <div>
+                        <h3>Title</h3>
+                        <input style="width: 300px" type="text" name="modaltitle" value= "{{ value[1] }}">
+                    </div><br><br>
+                    <div>
+                        <h3>Message</h3>
+                        <textarea style="width: 300px; height:150px" name="modalmessage">{{value[2]}}</textarea>
+                    </div>
+                </div>
+        
+                <!-- Modal footer -->
+                  <div class="modal-footer">
+                  <button type="submit" class="btn btn-success"  >Update
+                  </button>
+                  </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    {% endfor %}
+{% endblock %}
+
+{% block script %}
+
+    <script>
+      // function model_open(){
+      //   $('#myModal').modal('show');
+      // }
+      // console.log("Hey")
+      // function call(id){
+      //   console.log(id)
+      //   // console.log(e.target[0].value,e.target[1].value)
+      //   // const data={
+      //   //   title:e.target[0].value,
+      //   //   message:e.target[1].value
+      //   // }
+      //   // fetch('http://127.0.0.1:5000/delete')
+
+      // }
+    </script>
+
+{% endblock %}

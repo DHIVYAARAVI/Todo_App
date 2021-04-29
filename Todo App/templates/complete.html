@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block style %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/complete.css') }}">
+{% endblock %}
+
+{% block title %}
+  Complete
+{% endblock %}
+
+{% block body %}
+
+    <br><br>
+    <!-- Adding the cards in the window -->
+    {% for value in values %}
+      <div class="card card1" style="background-color: gray;">
+          <div class="card2" data-toggle="modal" data-target="#myModal1">
+            <div class="card-body">
+              <h4 class="card-title">{{value[1]}}</h4>
+            </div>
+            <div></div>
+            <div>
+              <form action="/deletes/{{value[0]}}" >
+                <button  type="submit" class="btn btn-danger">Delete</button>
+              </form>   
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,23 @@
+.topic{
+    display: inline-block;
+    margin-left: 40%;
+    color: white;
+}
+
+.card1{
+    width: 600px;
+    margin-left: 30%;
+    padding: 20px;    
+}
+
+.card2{
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    border: 2px solid black;
+    background-color: white;
+    padding: 10px;
+}
+
+.card-button{
+    margin-top: 15%;
+}
