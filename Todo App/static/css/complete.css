@@ -21,3 +21,24 @@
 .card-button{
     margin-top: 15%;
 }
+
+@media only screen and (max-width: 600px) {
+    .topic{
+        display: inline-block;
+        margin-left: 15%;
+    }
+    .card1{
+        width: 350px;
+        margin-left: 2%;
+        padding: 20px;    
+    }
+    .card2{
+        display: block;
+        border: 2px solid black;
+        background-color: white;
+        padding: 10px;
+    }
+    .a_center{
+        margin-left: 20%;
+    }
+  }

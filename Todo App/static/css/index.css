@@ -45,4 +45,38 @@
     padding: 10px;
 }
 
+@media only screen and (max-width: 600px) {
+    .topic{
+        display: inline-block;
+        margin-left: 15%;
+    }
+    .modal_title{
+        font-size: 30px;
+        margin-left: 10%;
+    }
+    .add{
+        margin-bottom: 5%;
+        padding: 3% 5% 3% 5%;
+    }
+    .card1{
+        width: 350px;
+        margin-left: 2%;
+        padding: 20px;    
+    }
+    .card2{
+        display: block;
+        border: 2px solid black;
+        background-color: white;
+        padding: 10px;
+    }
+    .button_change{
+        display: grid;
+        grid-template-columns: 40% 20% 40%;
+        width: 100%;
+    }
+    .a_center{
+        margin-left: 20%;
+    }
+  }
 
+  
